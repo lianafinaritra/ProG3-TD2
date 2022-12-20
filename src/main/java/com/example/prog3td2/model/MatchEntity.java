@@ -23,8 +23,10 @@ public class MatchEntity {
     private String stadium;
 
     @OneToOne
+    @JoinColumn(name = "team_one")
     private TeamEntity teamOne;
 
     @OneToOne
+    @JoinColumn(name = "team_two")
     private TeamEntity teamTwo;
 }

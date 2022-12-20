@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-
 @Entity
 @Table(name = "team")
 @Data
@@ -31,4 +30,14 @@ public class TeamEntity {
             joinColumns = @JoinColumn(name = "team_id"),
             inverseJoinColumns = @JoinColumn(name = "sponsor_id"))
     private List<SponsorEntity> sponsors;
+
+    @ManyToMany
+    @JoinTable(
+            name = "play_against",
+            joinColumns = @JoinColumn(name = "team_one"),
+            inverseJoinColumns = @JoinColumn(name = "team_two"))
+    private List<TeamEntity> teamOne;
+
+    @ManyToMany(mappedBy = "teamOne")
+    private List<TeamEntity> teamTwo;
 }

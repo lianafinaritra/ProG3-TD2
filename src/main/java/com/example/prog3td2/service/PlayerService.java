@@ -12,7 +12,7 @@ import java.util.List;
 public class PlayerService {
     private PlayerRepository repository;
 
-    public List<PlayerEntity> getTeams() {
+    public List<PlayerEntity> getPlayers() {
         return repository.findAll();
     }
 }
